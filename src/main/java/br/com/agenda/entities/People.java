@@ -1,7 +1,11 @@
 package br.com.agenda.entities;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity(name = "Pessoa")
 public class People {
@@ -18,7 +22,10 @@ public class People {
 	
 	@Column(name = "empresaPessoa")
 	private String company;
-   
+	
+   @OneToMany
+   @JoinColumn(name = "pessoa_id_pessoa")
+	private List<Phone> listPhones;
 
 	public int getId() {
 		return id;
@@ -51,6 +58,15 @@ public class People {
 	public void setCompany(String company) {
 		this.company = company;
 	}
+
+	public List<Phone> getListPhones() {
+		return listPhones;
+	}
+
+	public void setListPhones(List<Phone> listPhones) {
+		this.listPhones = listPhones;
+	}
+	
 	
 	
 }
