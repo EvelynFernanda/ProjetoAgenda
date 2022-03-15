@@ -58,7 +58,7 @@ public class MaintainPeople {
     }
     @PostMapping
     @ResponseBody
-    public void criatePeople(@RequestBody People people){
+    public void createPeople(@RequestBody People people){
     	servicePeople.insertPeople(people);
       
     

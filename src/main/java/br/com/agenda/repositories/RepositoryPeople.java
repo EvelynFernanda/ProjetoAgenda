@@ -2,14 +2,16 @@ package br.com.agenda.repositories;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
 import br.com.agenda.entities.People;
 
 @Repository
-public interface RepositoryPeople extends JpaRepository<People, Long>{
+public interface RepositoryPeople extends CrudRepository<People, Long>{
+	void deleteById(int id);
 	List<People> findPeopleByFirstName(String firstName);
+	People saveAndFlush(People people); 
 	
 
 }
